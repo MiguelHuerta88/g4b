@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
+
+// signup routes
+Route::get('/signup', 'Auth\SignupController@display')->name('signup');
+Route::post('/signup', 'Auth\SignupController@post')->name('signup.post');
