@@ -8722,4 +8722,63 @@ a.text-dark:hover, a.text-dark:focus {
   margin: 0 30px;
 }
 
+.modal-header {
+  background: #ededed;
+}
+
+.modal-body {
+  margin: 20px 15px;
+}
+
+.modal-body .tier {
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 15px 0;
+}
+
+.modal-body .tier .img {
+  width: 40%;
+  height: 150px;
+  background: lightblue;
+  margin-right: 5%;
+}
+
+.modal-body .tier .text {
+  padding: 15px 0 0 0;
+  width: 50%;
+  height: 150px;
+  text-align: center;
+}
+
+.modal-body .tier .text .btn-common {
+  border-radius: 4px;
+}
+
+.modal-body .tier .text .artist {
+  border: 1px solid #00a1c6;
+  color: #00a1c6;
+}
+
+.modal-body .tier .text .manager {
+  border: 1px solid #6e943b;
+  color: #6e943b;
+}
+
+.modal-body .tier .text .coordinator {
+  border: 1px solid #FF0000;
+  color: #FF0000;
+}
+
+.modal-body .tier .text .description {
+  margin: 10px 0 0 0;
+  font-size: 12px;
+  color: #818285;
+  text-align: left;
+}
+
+.modal-body .tier:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+
 /*# sourceMappingURL=app.css.map */

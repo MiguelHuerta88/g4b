@@ -16,5 +16,6 @@
 				@yield('content')
 			</div>
 		</div>
+		@include('forms.modal')
 	</body>
 </html>
