@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 // signup routes
 Route::get('/signup', 'Auth\SignupController@display')->name('signup');
-Route::post('/signup', 'Auth\SignupController@post')->name('signup.post');
+Route::get('/signup/artist', 'Auth\SignupController@artist')->name('signup.artist');
+Route::post('/signup/artist', 'Auth\SignupController@post')->name('post.signup.artist');
+
+#Route::post('/signup', 'Auth\SignupController@post')->name('signup.post');
 
 // ajax routes for form
 Route::get('/append-form/{id}', 'AjaxController@form');

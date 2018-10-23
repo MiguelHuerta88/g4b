@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -16,7 +16,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'email',
+        'username',
+        'password',
+        'artist_name',
+        'hometown',
+        'state',
+        'genre_id',
+        'user_typ_id',
+        'verify_hash',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -27,4 +39,30 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Validation rules to be used
+     * @var array
+     */
+    protected $rules = [
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'username' => 'required|string|max:255',
+        'password' => 'required|string|min:6|confirmed',
+        'artist_name' => 'sometimes|required|string|max:255',
+        'hometown' => 'sometimes|required|string|max:255',
+        'genre_id' => 'sometimes|required|integer',
+        'user_type_id' => 'required|integer',
+    ];
+
+    /**
+     * Get our validation rules for this model
+     *
+     * @return array
+     */
+    public function getRules()
+    {
+        return $this->rules;
+    }
 }

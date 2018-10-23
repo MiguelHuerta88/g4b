@@ -106,4 +106,80 @@
 	#other {
 		margin-left: 20px;
 	}
+	.error {
+		border: 1px solid red;
+	}
+	.error-message {
+		font-size: 12px;
+		color: red;
+		font-weight: 600;
+	}
+}
+
+/* signup tiers */
+.tiers {
+	position: relative;
+	display: flex;
+	with: 100%;
+
+	.box {
+		width: 25%;
+		min-height: 400px;
+		padding: 10px;
+		border: 2px solid #666;
+		box-shadow: 5px 8px #888888;
+		position: relative;
+
+		.title {
+			font-size: 20px;
+			text-transform: uppercase;
+			font-weight:bold;
+			text-align: center;
+		}
+		.benefits {
+			position: relative;
+			margin: 20px 0 0 0;
+			font-style: italic;
+			color: #474747;
+
+			ul {
+				list-style: none;
+				margin: 0 15px;
+				padding: 0;
+
+				li {
+					margin: 10px 0;
+
+					i {
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+		.create-btn {
+			position: absolute;
+			bottom: 70px;
+			width: 80%;
+			background: #4986a9;
+			color: #fff;
+			border: 1px solid #4986a9;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
+			margin: 15px;
+			text-align: center;
+			padding: 5px;
+			font-size: 16px;
+			font-weight: 700;
+			text-transform: uppercase;
+
+			.lg-btn {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+	.manager {
+		margin: 0 30px;
+	}
 }

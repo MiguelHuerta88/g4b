@@ -8643,4 +8643,83 @@ a.text-dark:hover, a.text-dark:focus {
   margin-left: 20px;
 }
 
+#signupForm .error {
+  border: 1px solid red;
+}
+
+#signupForm .error-message {
+  font-size: 12px;
+  color: red;
+  font-weight: 600;
+}
+
+/* signup tiers */
+.tiers {
+  position: relative;
+  display: flex;
+  with: 100%;
+}
+
+.tiers .box {
+  width: 25%;
+  min-height: 400px;
+  padding: 10px;
+  border: 2px solid #666;
+  box-shadow: 5px 8px #888888;
+  position: relative;
+}
+
+.tiers .box .title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tiers .box .benefits {
+  position: relative;
+  margin: 20px 0 0 0;
+  font-style: italic;
+  color: #474747;
+}
+
+.tiers .box .benefits ul {
+  list-style: none;
+  margin: 0 15px;
+  padding: 0;
+}
+
+.tiers .box .benefits ul li {
+  margin: 10px 0;
+}
+
+.tiers .box .benefits ul li i {
+  margin-right: 5px;
+}
+
+.tiers .box .create-btn {
+  position: absolute;
+  bottom: 70px;
+  width: 80%;
+  background: #4986a9;
+  color: #fff;
+  border: 1px solid #4986a9;
+  border-radius: 2px;
+  margin: 15px;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tiers .box .create-btn .lg-btn {
+  color: #fff;
+  text-decoration: none;
+}
+
+.tiers .manager {
+  margin: 0 30px;
+}
+
 /*# sourceMappingURL=app.css.map */
