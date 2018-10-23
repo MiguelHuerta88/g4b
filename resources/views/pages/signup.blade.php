@@ -7,38 +7,27 @@
 		<h2>
 		Signup to Gigs for Bands
 		</h2>
-		<p>
+		<!--<p>
 			Select your appropriate membership style
-		</p>
+		</p>-->
 	</div>
 
 	<div class='form col-lg-10'>
-		<ul class='nav nav-tabs col-lg-5' id='form-tabs'>
-			<li class='nav-item' id='artist'>
-				<a class='nav-link active' href="#">Artist</a>
-			</li>
-
-			<li class='nav-item' id='manager'>
-				<a class='nav-link' href="#">Manager</a>
-			</li>
-
-			<li class='nav-item' id='coordinator'>
-				<a class='nav-link' href="#">Event Coordinator</a>
-			</li>
-		</ul>
 		<div class='form-group'>
-			{!! Form::open(['url' => route('signup.post'), 'id' => 'signupForm']) !!}
+			{!! Form::open(['url' => secure_url('/signup'), 'id' => 'signupForm']) !!}
 				@include('forms.signup-common')
-				<div class='active' id='artist-form'>
-					@include('forms.signup-artist', ['genres' => $genres])
+
+				<div class='form-group row'>
+					<label class='col-sm-10 col-form-label'>Please select profile type</label>
+					<div class='col-sm-10 form-types'>
+						<div class='btn btn-outline-dark' id='artist-form' data-form-id='1'>Artist</div>
+						<div class='btn btn-outline-dark' id='manager-form' data-form-id='2'>Manager</div>
+						<div class='btn btn-outline-dark' id='event-form' data-form-id='3'>Event Coordinator</div>
+					</div>		
 				</div>
 
-				<div class='hide' id='manager-form'>
-					@include('forms.signup-manager')
-				</div>
+				<div class='form-addition'>
 
-				<div class='hide' id='coordinator-form'>
-					events
 				</div>
 			{!! Form::close() !!}
 		</div>

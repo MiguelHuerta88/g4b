@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 
-class Genre extends BaseModel {
+
+class Genre extends Model {
 
 	/**
 	 * Table name
@@ -12,4 +13,28 @@ class Genre extends BaseModel {
 	 * @var string
 	 */
 	protected $table = 'genre';
+
+	/**
+	 * Fillable array
+	 *
+	 * @var array
+	 */
+	protected $fillable = array();
+
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
+	protected $rules = array();
+
+	/**
+	 * get validation rules
+	 *
+	 * @var array
+	 */
+	public function getRules()
+	{
+		return $this->rules;
+	}
 }

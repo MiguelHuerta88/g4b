@@ -4,8 +4,9 @@ var form = {
 
 		console.log("signup page");
 
-		form.helpers.setupTabs("#form-tabs");
+		//form.helpers.setupTabs("#form-tabs");
 		form.helpers.select('#genre-select');
+		form.helpers.appendForm('.form-types');
 	},
 	helpers: {
 		toggleTabOff: function(elem){
@@ -73,6 +74,16 @@ var form = {
 				var changed = $(select + " :selected").text().toLowerCase();
 
 				form.helpers.shouldShowOther(changed);
+			});
+		},
+		appendForm: function(parent){
+			// listen for a click
+			$(parent + " div.btn").click(function(){
+				var formType = $(this).data('form-id');
+				$.get('/append-form/' + formType, function(data){
+					// replace the div .form-addition
+					$('.form-addition').html(data);
+				});
 			});
 		},
 	}
