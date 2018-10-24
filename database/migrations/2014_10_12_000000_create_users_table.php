@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('artist_name');
+            $table->string('artist_name')->unique();
             $table->string('hometown');
             $table->string('state');
             $table->integer('genre_id')->nullable();
