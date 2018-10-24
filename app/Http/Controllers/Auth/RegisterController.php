@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Controllers\Gates\UserGate;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegistered;
 
 class RegisterController extends Controller
 {
@@ -50,13 +52,15 @@ class RegisterController extends Controller
     public function register(array $attributes)
     {
         //dd($attributes);
-        list($passes, $messages, $model) = (new UserGate())->tryInsert($attributes, new User());
+        list($passes, $messages, $user) = (new UserGate())->tryInsert($attributes, new User());
 
         if (!$passes) {
             return redirect()->back()->withErrors($messages)->withInput();
         }
 
         // send out event other after creation stuff
+        // Mail::to($request->user())->send(new OrderShipped($order));
+        Mail::to($user)->send(new UserRegistered($user));
 
         // then redirect to homepage
         $message = 'Successfully created user.';
