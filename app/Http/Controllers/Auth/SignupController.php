@@ -45,6 +45,11 @@ class SignupController extends Controller
             );
     }
 
+    /**
+     * manager form function
+     *
+     * @return view
+     */
     public function manager()
     {
         return view('forms.signup-manager');
@@ -61,4 +66,16 @@ class SignupController extends Controller
 
         return $this->registerController->register($attributes);
 	}
+
+    /**
+     * Verify method
+     * By the time we reach here we just need to flash the message. Middleware should have done the heavy lifting
+     *
+     * @param $code
+     * @return \Illuminate\Http\RedirectResponse
+     */
+	public function verify($code)
+    {
+        return redirect('/')->with('message', 'User successfully verified');
+    }
 }

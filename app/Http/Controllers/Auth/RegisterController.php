@@ -51,7 +51,6 @@ class RegisterController extends Controller
      */
     public function register(array $attributes)
     {
-        //dd($attributes);
         list($passes, $messages, $user) = (new UserGate())->tryInsert($attributes, new User());
 
         if (!$passes) {

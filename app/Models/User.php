@@ -67,4 +67,16 @@ class User extends Authenticatable
     {
         return $this->rules;
     }
+
+    /**
+     * Scope by verify_hash code
+     *
+     * @param $query
+     * @param $code
+     * @return mixed
+     */
+    public function scopeByCode($query, $code)
+    {
+        return $query->where('verify_hash', $code);
+    }
 }

@@ -18,5 +18,10 @@ Route::get('/', function () {
 // signup routes
 Route::get('/signup/artist', 'Auth\SignupController@artist')->name('signup.artist');
 Route::post('/signup/artist', 'Auth\SignupController@post')->name('post.signup.artist');
+
 Route::get('/signup/manager', 'Auth\SignupController@manager')->name('signup.manger');
+// end of signup
+
+// verify user route
+Route::get('/verify/{code}', 'Auth\SignupController@verify')->middleware('verify')->name('signup.verify');
 
