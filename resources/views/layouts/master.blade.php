@@ -13,6 +13,11 @@
 		@include('layouts.navigation')
 		<div class='content-holder'>
 			<div class='content'>
+				@if( session('message'))
+					<div class="alert alert-success" role="alert">
+  						{{ session('message') }}
+					</div>
+				@endif
 				@yield('content')
 			</div>
 		</div>

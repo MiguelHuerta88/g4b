@@ -25,7 +25,7 @@ class User extends Authenticatable
         'hometown',
         'state',
         'genre_id',
-        'user_typ_id',
+        'user_type_id',
         'verify_hash',
         'created_at',
         'updated_at'
@@ -48,7 +48,7 @@ class User extends Authenticatable
         'first_name' => 'required|string|max:255',
         'last_name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255|unique:users',
-        'username' => 'required|string|max:255',
+        'username' => 'required|string|max:255|unique:users',
         'password' => 'required|string|min:6|confirmed',
         'artist_name' => 'sometimes|required|string|max:255',
         'hometown' => 'sometimes|required|string|max:255',

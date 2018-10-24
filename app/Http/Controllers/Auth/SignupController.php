@@ -3,20 +3,37 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Gates\UserGate;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Models\User;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class SignupController extends Controller
 {
-	
-	public function display()
-	{
-		// display the form
-		return view('pages.signup-options');
-	}
+    /**
+     * register controller
+     *
+     * @var RegisterController
+     */
+    public $registerController;
 
+    /**
+     * constructor function
+     *
+     * @param RegisterController $registerController
+     *
+     * @return void
+     */
+    public function __construct(RegisterController $registerController)
+    {
+        $this->registerController = $registerController;
+    }
+
+    /**
+     * artist form function
+     *
+     * @return view
+     */
 	public function artist()
     {
         $genres = Genre::all();
@@ -28,18 +45,15 @@ class SignupController extends Controller
             );
     }
 
+    /**
+     * post function for the form
+     *
+     * @return Redirect
+     */
 	public function post(Request $request)
 	{
 		$attributes = $request->all();
 
-        list($passes, $messages, $model) = (new UserGate())->tryInsert($attributes, new User());
-
-        if (!$passes) {
-            return redirect()->back()->withErrors($messages)->withInput();
-        }
-
-        // send out event other after creation stuff
-
-        // then redirect to homepage
+        return $this->registerController->register($attributes);
 	}
 }
