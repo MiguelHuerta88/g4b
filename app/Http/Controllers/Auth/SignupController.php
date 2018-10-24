@@ -45,6 +45,11 @@ class SignupController extends Controller
             );
     }
 
+    public function manager()
+    {
+        return view('forms.signup-manager');
+    }
+
     /**
      * post function for the form
      *

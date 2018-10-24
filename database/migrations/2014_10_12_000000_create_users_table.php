@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('hometown');
             $table->string('state');
             $table->integer('genre_id')->nullable();
+            $table->string('other')->nullable();
             $table->integer('user_type_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('verify_hash')->nullable();

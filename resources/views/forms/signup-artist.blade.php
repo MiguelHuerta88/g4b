@@ -15,8 +15,8 @@
 			@include('forms.signup-common')
 
 			<div class='form-group row'>
-				<label for='artist-name' class="col-sm-2 col-form-label">Artist Name*</label>
-				<div class='col-sm-6' id='artist_name'>
+				<label for='artist-name' class="col-lg-2 col-form-label">Artist Name*</label>
+				<div class='col-lg-6' id='artist_name'>
 					<input class='form-control @if($errors->has('artist_name'))error @endif' type='text' name='artist_name' placeholder="Enter Artist Name" value="{{ old('artist_name') }}"/>
 					@if($errors->has('artist_name'))
 						<div class="error-message">{{ $errors->first('artist_name') }}</div>
@@ -25,15 +25,15 @@
 			</div>
 
 			<div class='form-group row'>
-				<label for='hometown' class='col-sm-2 col-form-label'>Hometown</label>
-				<div class='col col-sm-3'>
+				<label for='hometown' class='col-lg-2 col-form-label'>Hometown</label>
+				<div class='col col-lg-3'>
 					<input type='text' class='form-control @if($errors->has('hometown'))error @endif' id='hometown' placeholder="Enter hometown" name='hometown' value="{{ old('hometown') }}">
 					@if($errors->has('hometown'))
 						<div class="error-message">{{ $errors->first('hometown') }}</div>
 					@endif
 				</div>
-				<label for='state' class='col-sm-1 col-form-label'>State</label>
-				<div class='col col-sm-2'>
+				<label for='state' class='col-lg-1 col-form-label'>State</label>
+				<div class='col col-lg-2'>
 					<input type='text' class='form-control @if($errors->has('state'))error @endif' id='state' placeholder="Enter state" name='state' value="{{ old('state') }}">
 					@if($errors->has('state'))
 						<div class="error-message">{{ $errors->first('state') }}</div>
@@ -43,11 +43,11 @@
 
 			@if(isset($genres))
 				<div class='form-group row'>
-					<label for='genre_id' class='col-sm-2 col-form-label'>Genre*</label>
-					<div class='col-sm-6'>
+					<label for='genre_id' class='col-lg-2 col-form-label'>Genre*</label>
+					<div class='col-lg-6'>
 						<select class="form-control @if($errors->has('genre_id'))error @endif" name='genre_id' id='genre-select'>
-							@foreach($genres as $id => $genre)
-								<option value="{{ $id }}">{{ $genre->name }}</option>
+							@foreach($genres as $genre)
+								<option value="{{ $genre->id }}" @if($genre->id == old('genre_id')) selected="selected" @endif>{{ $genre->name }}</option>
 							@endforeach
 						</select>
 						@if($errors->has('genre_id'))
@@ -56,8 +56,8 @@
 					</div>
 				</div>
 				<div class='form-group row hide' id='other'>
-					<label for='other-input' class="col-sm-2 col-form-label">Other</label>
-					<div class='col-sm-6' id='other-input'>
+					<label for='other-input' class="col-lg-2 col-form-label">Other</label>
+					<div class='col-lg-6' id='other-input'>
 						<input class='form-control @if($errors->has('other'))error @endif' type='text' name='other' placeholder="Enter other genre" value="{{ old('other') }}" />
 						@if($errors->has('other'))
 							<div class="error-message">{{ $errors->first('other') }}</div>

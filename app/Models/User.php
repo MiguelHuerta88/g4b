@@ -25,6 +25,7 @@ class User extends Authenticatable
         'hometown',
         'state',
         'genre_id',
+        'other',
         'user_type_id',
         'verify_hash',
         'created_at',
@@ -53,6 +54,7 @@ class User extends Authenticatable
         'artist_name' => 'sometimes|required|string|max:255',
         'hometown' => 'sometimes|required|string|max:255',
         'genre_id' => 'sometimes|required|integer',
+        'other' => 'sometimes|required_if:genre_id,7',
         'user_type_id' => 'required|integer',
     ];
 
