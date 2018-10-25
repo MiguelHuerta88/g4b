@@ -30,8 +30,7 @@
 					</div>
 				</div>
 
-				<div class='selected-users'>
-
+				<div class='selected-users row form-group'>
 				</div>
 			</div>
 			{{-- manager have user_type_id = 2 --}}

@@ -9,17 +9,52 @@ var form = {
 		form.helpers.appendForm('.form-types');
 		form.helpers.managerListen("#btn-manage");
 		form.autocomplete('#artist-autocomplete');
+		//form.removeUser("#remove-user");
 	},
 	autocomplete: function(elem){
 		$(elem).autocomplete({
       		source: "/ajax/artist-suggest",
       		minLength: 4,
-      		response: function( event, ui ) {
-      			console.log(ui);
+      		select: function( event, ui ) {
+      			form.helpers.clear(event, elem);
+      			// user selected an item
+      			form.helpers.appendManaged(ui);
       		}
     	});
 	},
+	removeUser: function(elem){
+		$("body").on("click", elem, function(){
+			// remove the elem
+			$(elem).remove();
+		});
+	},
 	helpers: {
+		clear: function(event, elem){
+			event.preventDefault();
+  			$(elem).val('');
+		},
+		appendManaged: function(item){
+			var item = item.item;
+			// item should be a json array
+
+			// append to .selected-users
+			var container = ".selected-users";
+
+			var id = 'remove-user-' + item.id;
+
+			// build html for input
+			var html = "<div class='item inline col-lg-2' id='user-input " + id + "'>";
+			html += "<label class='col-form-label'>" + item.label + "</label><i class='fas fa-times-circle'></i>";
+			html += "<input type='hidden' name='users_managed[]' value='" + item.id + "'/>";
+			html += "</div>";
+
+			$(container).append(html);
+
+			form.removeUser("#" + id);
+
+			html = null;
+			return;
+		},
 		managerListen: function(elem){
 			var item = ".div_manged-users";
 			$(elem).click(form.helpers.clicked);

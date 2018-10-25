@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('/signup/artist', 'Auth\SignupController@artist')->name('signup.artist');
 Route::post('/signup/artist', 'Auth\SignupController@post')->name('post.signup.artist');
 Route::get('/signup/manager', 'Auth\SignupController@manager')->name('signup.manger');
+Route::post('/signup/manager', 'Auth\SignupController@post')->name('post.signip.manager');
 
 // ajax routes
-Route::get('/ajax/artist-suggest', 'Ajax\AutocompleteController@suggest');
+Route::get('/ajax/artist-suggest', 'Ajax\AutocompleteController@suggest')->name('ajax.autocomplete');
