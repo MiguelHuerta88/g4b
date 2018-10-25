@@ -20,3 +20,5 @@ Route::get('/signup/artist', 'Auth\SignupController@artist')->name('signup.artis
 Route::post('/signup/artist', 'Auth\SignupController@post')->name('post.signup.artist');
 Route::get('/signup/manager', 'Auth\SignupController@manager')->name('signup.manger');
 
+// ajax routes
+Route::get('/ajax/artist-suggest', 'Ajax\AutocompleteController@suggest');

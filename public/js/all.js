@@ -7,8 +7,28 @@ var form = {
 		//form.helpers.setupTabs("#form-tabs");
 		form.helpers.select('#genre-select');
 		form.helpers.appendForm('.form-types');
+		form.helpers.managerListen("#btn-manage");
+		form.autocomplete('#artist-autocomplete');
+	},
+	autocomplete: function(elem){
+		$(elem).autocomplete({
+      		source: "/ajax/artist-suggest",
+      		minLength: 4,
+      		response: function( event, ui ) {
+      			console.log(ui);
+      		}
+    	});
 	},
 	helpers: {
+		managerListen: function(elem){
+			var item = ".div_manged-users";
+			$(elem).click(form.helpers.clicked);
+		},
+		clicked: function(){
+			var elem = '.div_manged-users';
+			// show the input where they can enter artist names
+			$(elem).removeClass('hide');
+		},
 		toggleTabOff: function(elem){
 			$(elem).removeClass('active');
 		},

@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return $this->rules;
     }
+
+    /**
+     * Scope query for artist name like
+     *
+     * @return Builder
+     */
+    public function scopeLikeName($query, $name)
+    {
+        return $query->where('artist_name', 'like', "%{$name}%");
+    }
 }

@@ -22,8 +22,17 @@
 				</div>
 			</div>
 
-			<div class='div_manged-users'>
-				
+			<div class='div_manged-users hide'>
+				<div class='form-group row'>
+					<label class='col-lg-3 col-form-label'>Enter artist/band name</label>
+					<div class='col-lg-4'>
+						<input type='text' class='form-control ui-widget' id='artist-autocomplete'/>
+					</div>
+				</div>
+
+				<div class='selected-users'>
+
+				</div>
 			</div>
 			{{-- manager have user_type_id = 2 --}}
 			<input type='hidden' name='user_type_id' value="2"/>
