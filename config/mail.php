@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'sendmail'),
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@gigsforbands.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'support@gisforbands.com'),
         'name' => env('MAIL_FROM_NAME', 'Gigs For Bands'),
     ],
 

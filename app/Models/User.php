@@ -79,4 +79,14 @@ class User extends Authenticatable
     {
         return $query->where('verify_hash', $code);
     }
+
+    /**
+     * Scope query for artist name like
+     *
+     * @return Builder
+     */
+    public function scopeLikeName($query, $name)
+    {
+        return $query->where('artist_name', 'like', "%{$name}%");
+    }
 }

@@ -114,6 +114,17 @@
 		color: red;
 		font-weight: 600;
 	}
+
+	.item {
+		curson: pointer;
+		label {
+			color: #666;
+			margin-right: 5px;
+		}
+		i {
+			color: #666;
+		}
+	}
 }
 
 /* signup tiers */

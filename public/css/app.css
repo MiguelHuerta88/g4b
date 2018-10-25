@@ -8653,6 +8653,19 @@ a.text-dark:hover, a.text-dark:focus {
   font-weight: 600;
 }
 
+#signupForm .item {
+  curson: pointer;
+}
+
+#signupForm .item label {
+  color: #666;
+  margin-right: 5px;
+}
+
+#signupForm .item i {
+  color: #666;
+}
+
 /* signup tiers */
 .tiers {
   position: relative;
