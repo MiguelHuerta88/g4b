@@ -58,7 +58,7 @@ class SignupController extends Controller
 	public function post(Request $request)
 	{
 		$attributes = $request->all();
-        dd($attributes);
+  
         return $this->registerController->register($attributes);
 	}
 }
