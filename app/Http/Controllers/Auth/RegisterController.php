@@ -51,14 +51,18 @@ class RegisterController extends Controller
      */
     public function register(array $attributes)
     {
-        list($passes, $messages, $user) = (new UserGate())->tryInsert($attributes, new User());
+        $userGate = new UserGate();
+
+        list($passes, $messages, $user) = $userGate->register($attributes, new User());
 
         if (!$passes) {
             return redirect()->back()->withErrors($messages)->withInput();
         }
 
+        // if we successfully create base user record we must now try to enter user_managed info if this is a manager account
+        $userGate->createUserManaged($attributes, $user);
+
         // send out event other after creation stuff
-        // Mail::to($request->user())->send(new OrderShipped($order));
         Mail::to($user)->send(new UserRegistered($user));
 
         // then redirect to homepage

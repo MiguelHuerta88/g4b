@@ -10,6 +10,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const TYPE_MANAGER = 2;
+    const TYPE_ARTIST = 1;
+    const TYPE_COORDINATOR = 3;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,7 +31,7 @@ class User extends Authenticatable
         'genre_id',
         'other',
         'user_type_id',
-        'verify_hash',
+        'verify_token',
         'created_at',
         'updated_at'
     ];

@@ -20,14 +20,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('artist_name')->unique();
-            $table->string('hometown');
-            $table->string('state');
+            $table->string('artist_name')->unique()->nullable();
+            $table->string('hometown')->nullable();
+            $table->string('state')->nullable();
             $table->integer('genre_id')->nullable();
             $table->string('other')->nullable();
             $table->integer('user_type_id');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('verify_hash')->nullable();
+            $table->string('verify_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
