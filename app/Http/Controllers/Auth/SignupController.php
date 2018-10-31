@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 
+use App\Http\Helpers\Emailer;
+
 class SignupController extends Controller
 {
     /**

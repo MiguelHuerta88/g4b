@@ -5,6 +5,9 @@ use App\Http\Controllers\GateController;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\UsersManaged;
+use App\Mail\UserRegistered;
+use App\Mail\RequestToManage;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -39,6 +42,9 @@ class UserGate extends GateController
 
             // create new user record
             $result = $model->create($attributes);
+
+            // send out event other after creation stuff
+            Mail::to($result)->send(new UserRegistered($result));
         }
 
         return [
@@ -55,7 +61,7 @@ class UserGate extends GateController
      * @param User $user
      * @return array
      */
-    public function createUserManaged(array $attributes, User $user)
+    public function createUserManaged(array $attributes, User $manager)
     {
         // 1. pull the user_type from attributes
         $userType = $attributes['user_type_id'];
@@ -67,16 +73,18 @@ class UserGate extends GateController
 
             foreach($usersManaged as $userManage) {
                 $fields['user_id'] = $userManage;
-                $fields['manager_id'] = $user->id;
+                $fields['manager_id'] = $manager->id;
                 $fields['verify_token'] = str_random(40);
 
                 // try to insert
-                list($passes, $messages, $userManaged) = $this->tryInsert($fields, new UsersManaged());
+                list($passes, $messages, $managed) = $this->tryInsert($fields, new UsersManaged());
 
                 if ($passes) {
-                    // send out an email to user who we are setting up for this manger to make them aware of the change
+                    // get user
+                    $user = User::find($userManage);
 
-                    // i think best option is to create a Mail helper class or facade type class. to send messages and we just pass it the params
+                    // send out an email to user who we are setting up for this manger to make them aware of the change
+                    Mail::to($user)->send(new RequestToManage($user, $manager, $managed->verify_token));
                 }
             }
         }

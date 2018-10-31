@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Http\Controllers\Gates\UserGate;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\UserRegistered;
 
 class RegisterController extends Controller
 {
@@ -61,9 +59,6 @@ class RegisterController extends Controller
 
         // if we successfully create base user record we must now try to enter user_managed info if this is a manager account
         $userGate->createUserManaged($attributes, $user);
-
-        // send out event other after creation stuff
-        Mail::to($user)->send(new UserRegistered($user));
 
         // then redirect to homepage
         $message = 'Successfully created user.';
