@@ -8757,6 +8757,11 @@ a.text-dark:hover, a.text-dark:focus {
   margin-right: 5%;
 }
 
+.modal-body .tier .img img {
+  height: inherit;
+  width: 100%;
+}
+
 .modal-body .tier .text {
   padding: 15px 0 0 0;
   width: 50%;

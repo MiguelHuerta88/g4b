@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="tier">
-                    <div class="img"></div>
+                    <div class="img"><img src="{{ asset('images/artist.jpg') }}"></div>
                     <div class="text">
                         <a href="/signup/artist" class="btn artist btn-common btn-block">
                                 Sign up as artist
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="tier">
-                    <div class="img"></div>
+                    <div class="img"><img src="{{ asset('images/manager.png') }}"></div>
                     <div class="text">
                         <a href="/signup/manager" class="btn manager btn-common btn-block">
                                 Sign up as manager
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="tier">
-                    <div class="img"></div>
+                    <div class="img"><img src="{{ asset('images/coordinator.jpg') }}"></div>
                     <div class="text">
                         <a href="/signup/coordinator" class="btn coordinator btn-common btn-block">
                             Sign up as event coordinator
