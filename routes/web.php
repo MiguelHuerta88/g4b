@@ -19,8 +19,11 @@ Route::get('/', function () {
 Route::get('/signup/artist', 'Auth\SignupController@artist')->name('signup.artist');
 Route::post('/signup/artist', 'Auth\SignupController@post')->name('post.signup.artist');
 
-Route::get('/signup/manager', 'Auth\SignupController@manager')->name('signup.manger');
+Route::get('/signup/manager', 'Auth\SignupController@manager')->name('signup.manager');
 Route::post('/signup/manager', 'Auth\SignupController@post')->name('post.signip.manager');
+
+Route::get('/signup/coordinator', 'Auth\SignupController@coordinator')->name('signup. coordinator');
+Route::post('/signup/coordinator', 'Auth\SignupController@post')->name('post.signip.coordinator');
 
 // end of signup
 

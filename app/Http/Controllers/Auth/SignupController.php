@@ -58,6 +58,16 @@ class SignupController extends Controller
     }
 
     /**
+     * coordinator form function
+     *
+     * @return view
+     */
+    public function coordinator()
+    {
+        return view('forms.signup-coordinator');
+    }
+
+    /**
      * post function for the form
      *
      * @return Redirect
