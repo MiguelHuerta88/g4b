@@ -18,7 +18,7 @@ class CreateUsersManagedTable extends Migration
             $table->integer('manager_id')->primary('manager_id');
             $table->integer('user_id');
             $table->boolean('approved')->default(false);
-            $table->string('verify_token');
+            $table->string('verify_token')->nullable();
             $table->timestamps();
         });
     }

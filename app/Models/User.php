@@ -32,6 +32,7 @@ class User extends Authenticatable
         'other',
         'user_type_id',
         'verify_token',
+        'email_verified_ad',
         'created_at',
         'updated_at'
     ];
@@ -81,7 +82,7 @@ class User extends Authenticatable
      */
     public function scopeByCode($query, $code)
     {
-        return $query->where('verify_hash', $code);
+        return $query->where('verify_token', $code);
     }
 
     /**

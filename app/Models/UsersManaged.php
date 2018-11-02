@@ -45,4 +45,22 @@ class UsersManaged extends Model
     {
     	return $this->rules;
     }
+
+    public function user()
+    {
+        return $this->hasOne('App\Models\User', 'id', 'manager_id');
+    }
+
+    /**
+     * scope by code function
+     *
+     * @param QueryBuilder
+     * @param string
+     *
+     * @return QueryBuilder
+     */
+    public function scopeByCode($query, $code)
+    {
+        return $query->where('verify_token', $code);
+    }
 }

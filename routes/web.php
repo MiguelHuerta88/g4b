@@ -26,6 +26,8 @@ Route::post('/signup/manager', 'Auth\SignupController@post')->name('post.signip.
 
 // verify user route
 Route::get('/verify/{code}', 'Auth\SignupController@verify')->middleware('verify')->name('signup.verify');
+// verify request to manger user
+Route::get('/verify/artist/{code}', 'Auth\SignupController@verify')->middleware('verifyManager')->name('signup.manager.verify');
 
 // ajax routes
 Route::get('/ajax/artist-suggest', 'Ajax\AutocompleteController@suggest')->name('ajax.autocomplete');

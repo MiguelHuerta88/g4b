@@ -6,4 +6,4 @@ Manger Info
 	name : {{ $manager->first_name}} {{ $manager->last_name }}
 	username: {{ $manager->username }}
 
-to manage you please verify by <a href="{{ $siteUrl}}/verify/artist/{{ $hash }}"> Clicking here </a>
+to manage you please verify by <a href="{{ $siteUrl}}/verify/artist/{{ $hash }}" target="_blank"> Clicking here </a>
